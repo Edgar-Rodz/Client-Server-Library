@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainBorderPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CatalogController">
+    <top>
+        <!-- Header -->
+        <HBox alignment="CENTER" spacing="10">
+            <Label style="-fx-font-size: 24px;" text="Library Catalog" />
+            <!-- Add any additional header components here -->
+            <Button fx:id="logoutButton" onAction="#UserLogout" text="Logout" />
+        </HBox>
+    </top>
+   <bottom>
+        <!-- Main content -->
+        <VBox alignment="CENTER" spacing="10" BorderPane.alignment="CENTER">
+            <!-- Search Bar -->
+            <HBox alignment="CENTER" spacing="10">
+                <Label text="Search:" />
+                <TextField fx:id="searchField" />
+                <Button fx:id="searchButton" onAction="#searchBooks" text="Search" />
+            <Button fx:id="Reset" mnemonicParsing="false" onAction="#resetLog" text="Reset" />
+            </HBox>
+
+            <!-- Catalog List -->
+            <TableView fx:id="catalogTable" prefHeight="400" prefWidth="700">
+                <columns>
+                    <TableColumn fx:id="titleColumn" text="Title" />
+                    <TableColumn fx:id="authorColumn" text="Author" />
+                    <!-- Add more columns as needed -->
+                </columns>
+            </TableView>
+
+            <!-- Borrow/Return Buttons -->
+            <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="view" mnemonicParsing="false" onAction="#viewWish" text="View Wish" />
+                <Button fx:id="borrowButton" onAction="#checkoutBook" text="Borrow" />
+                <Button fx:id="returnButton" onAction="#returnBook" text="Return" />
+            </HBox>
+         <Button fx:id="wishlist" mnemonicParsing="false" onAction="#addToWish" text="Wishlist" />
+         <Label fx:id="Output" />
+         <Label fx:id="viewList" />
+            <ListView fx:id="checkedOutListView" prefHeight="100" prefWidth="200" />
+        </VBox>
+   </bottom>
+
+    <!-- Footer (optional) -->
+    <!-- Add any footer components here -->
+</BorderPane>
